@@ -13,6 +13,10 @@
 function continueGame(){
     // generate a random alphabet
     const alphabet = getARandomAlphabet();
+    const currentAlphabetElement = document.getElementById('current-alphabet');
+    currentAlphabetElement.innerText = alphabet;
+
+    setBackgroundColorById(alphabet);
 
 }
 
@@ -22,12 +26,4 @@ function play(){
     continueGame();
     }
 
-    function getARandomAlphabet(){
-        const alphabetString='abcdefghijklmnopqrstuvwxyz';
-        const alphabets = alphabetString.split('');
-
-        const randomNumber = Math.random()*25;
-        const index = Math.round(randomNumber);
-        const alphabet = alphabets[index];
-        return alphabet;
-    }
+    
