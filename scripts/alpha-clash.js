@@ -58,6 +58,8 @@ function handleKeyboardKeyUpEvent(event) {
     setTextElementValueById("current-life", updatedLife);
 
     if (updatedLife === 0) {
+      audio.src = "../audios/gameover.mp3";
+      audio.play();
       gameOver();
     }
 
@@ -83,16 +85,23 @@ function continueGame() {
   setBackgroundColorById(alphabet);
 }
 
+function audio(){
+  const audio = new Audio();
+  audio.src = "../audios/play.mp3";
+  audio.play();
+}
+
 function play() {
   isGamePlayOn = true;
   // hide everthing and set to pg
   hideElementById("home-screen");
   hideElementById("final-score");
   showElementById("play-ground");
-
+   audio();
   setTextElementValueById("current-life", 5);
   setTextElementValueById("current-score", 0);
-
+  // audio.src = "../audios/play.mp3";
+  // audio.play();
   continueGame();
 }
 
